@@ -1,87 +1,74 @@
-/* Additional styles specific to the App component */
+/* App-specific styles for the voting system */
 
 .App {
   min-height: 100vh;
 }
 
-.App-header {
-  background-color: #282c34;
-  padding: 20px;
-  color: white;
-  text-align: center;
+.main-content {
+  margin-top: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.tab-content {
+  margin-top: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Additional app-specific animations and transitions */
+.app-container {
+  animation: appLoad 1s ease-out;
 }
 
-@keyframes App-logo-spin {
+@keyframes appLoad {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: scale(0.95);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
-/* Custom scrollbar for event log */
-.event-log::-webkit-scrollbar {
-  width: 8px;
+/* Smooth transitions for tab switching */
+.tab-content > * {
+  animation: tabSwitch 0.4s ease-out;
 }
 
-.event-log::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 4px;
+@keyframes tabSwitch {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-.event-log::-webkit-scrollbar-thumb {
-  background: #c1c1c1;
-  border-radius: 4px;
+/* Additional hover effects for better UX */
+.glass-card:hover {
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
 }
 
-.event-log::-webkit-scrollbar-thumb:hover {
-  background: #a8a8a8;
+/* Loading state improvements */
+.loading-screen h2 {
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-/* Responsive design */
+.loading-screen p {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Responsive improvements */
 @media (max-width: 768px) {
-  .container {
-    padding: 10px;
+  .main-content {
+    padding: 20px;
   }
-  
-  .header h1 {
-    font-size: 2rem;
-  }
-  
-  .tabs {
-    flex-wrap: wrap;
-  }
-  
-  .tab {
-    flex: 1;
-    min-width: 120px;
-  }
-  
-  .grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .candidate-item,
-  .voter-item {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .vote-button {
-    margin-left: 0;
-    margin-top: 10px;
-    width: 100%;
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding: 15px;
   }
 }
