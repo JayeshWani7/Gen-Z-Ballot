@@ -32,3 +32,4 @@ frontend/dist/
 
 # Misc
 *.tsbuildinfo
+env
